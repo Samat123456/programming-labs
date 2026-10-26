@@ -40,6 +40,9 @@ ___________________________
    ```bash
    git config --global user.name "Ахметов Самат"
    git config --global user.email "kiperenergy@mail.ru"
+#
+   git version 2.56.0.windows.2
+
 Создание локального репозитория: Создана корневая папка programming-labs и выполнен переход в нее. Инициализирован Git-репозиторий (появилась скрытая папка .git):
 
 ```bash
@@ -47,6 +50,8 @@ mkdir programming-labs
 cd programming-labs
 git init
 ```
+Initialized empty Git repository in C:/Users/user/programming-labs/.git/
+
 Создание структуры: Внутри корневой папки создана директория lab_01 и рабочий файл main.py.
 
 Первый коммит: Файлы добавлены в индекс и зафиксированы:
@@ -55,6 +60,10 @@ git init
 git add .
 git commit -m "Initial commit: create structure and lab_01"
 ```
+[master (root-commit) e9e1b20] Initial commit: create structure and lab_01
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 lab_01/main.py
+
 Создание удаленного репозитория: На сайте GitHub создан публичный репозиторий с именем programming-labs (без инициализации README и лицензий, чтобы избежать конфликтов).
 
 Связывание и отправка: Локальный репозиторий связан с удаленным, основная ветка переименована в main, код отправлен на сервер:
@@ -64,6 +73,15 @@ git remote add origin https://github.com/Samat123456/programming-labs.git
 git branch -M main
 git push -u origin main
 ```
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 300 bytes | 150.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Samat123456/programming-labs.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
 ## Вывод
 В ходе выполнения лабораторной работы были изучены базовые концепции системы контроля версий Git. Были приобретены практические навыки работы в терминале: настройка конфигурации, инициализация локального репозитория, создание структуры каталогов, фиксация изменений (коммиты) и синхронизация с удаленным репозиторием на GitHub. Также был освоен формат Markdown для оформления отчетности. Цель работы полностью достигнута.
 
