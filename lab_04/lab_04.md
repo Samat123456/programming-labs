@@ -60,7 +60,7 @@ git commit -m "Initial commit: create structure and lab_01"
 Связывание и отправка: Локальный репозиторий связан с удаленным, основная ветка переименована в main, код отправлен на сервер:
 
 ```bash
-git remote add origin https://github.com/ВАШ_НИКНЕЙМ/programming-labs.git
+git remote add origin https://github.com/Samat123456/programming-labs.git
 git branch -M main
 git push -u origin main
 ```
