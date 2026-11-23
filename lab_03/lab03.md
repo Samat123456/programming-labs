@@ -43,30 +43,20 @@ Python содержит четыре основные встроенные ст�
 
 ```python
 def analyze_phases(phase_loads):
-    """Принимает словарь с нагрузками фаз и вычисляет суммарные нагрузки."""
     result = {}
     for phase, loads in phase_loads.items():
         result[phase] = sum(loads)
     return result
-
 def detect_imbalance(phase_loads, max_diff=15.0):
-    """
-    Находит максимальное расхождение средних нагрузок.
-    Возвращает кортеж: (is_imbalanced, max_difference).
-    """
     averages = {}
     for phase, loads in phase_loads.items():
         averages[phase] = sum(loads) / len(loads)
-    
     max_avg = max(averages.values())
     min_avg = min(averages.values())
     actual_diff = max_avg - min_avg
-    
     is_imbalanced = actual_diff > max_diff
     return (is_imbalanced, round(actual_diff, 2))
-
 def get_last_n_samples(phase_loads, n=5):
-    """С помощью срезов формирует словарь из n последних измерений для каждой фазы."""
     result = {}
     for phase, loads in phase_loads.items():
         result[phase] = loads[-n:]
@@ -79,7 +69,6 @@ import sys
 import variant_mod
 
 def main():
-    # Считываем число n из аргументов командной строки
     if len(sys.argv) > 1:
         try:
             n = int(sys.argv[1])
@@ -87,23 +76,14 @@ def main():
             n = 3
     else:
         n = 3
-
-    # Задаем текущие нагрузки (словарь)
     loads = {
         'A': [110, 115, 120, 118], 
         'B': [95, 98, 92, 96], 
         'C': [140, 145, 150, 148]
     }
-
-    # Вызываем функции из модуля
     total_loads = variant_mod.analyze_phases(loads)
-    
-    # Распаковываем кортеж
     is_imbalanced, max_diff = variant_mod.detect_imbalance(loads, max_diff=15.0)
-    
     recent_samples = variant_mod.get_last_n_samples(loads, n)
-
-    # Формируем отчет
     print("=== МОНИТОРИНГ ТРЕХФАЗНОЙ СЕТИ ===")
     print(f"Суммарные токи фаз: A={total_loads['A']}A, B={total_loads['B']}A, C={total_loads['C']}A")
     
